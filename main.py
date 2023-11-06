@@ -5,7 +5,7 @@ from ase.calculators.emt import EMT
 from ase.optimize.minimahopping import MHPlot
 from Pos3D import getPositions 
 import os
-steps = 500
+steps = 1000
 T0=1000
 for AuAtoms in range(2, 100):
 	system = Atoms(f'Au{AuAtoms}', positions=getPositions(AuAtoms))
@@ -15,7 +15,7 @@ for AuAtoms in range(2, 100):
 	opt(totalsteps=steps)
 	endT = t.time()
 	with open('timeSummary.txt', '+a') as f:
-		print(f"Time: {endT - startT}|Steps: {steps}|T0: {T0}", file=f)
+		print(f"Au{AuAtoms}|Time: {endT - startT}|Steps: {steps}|T0: {T0}", file=f)
 
 	mhplot = MHPlot()
 	mhplot.save_figure(f'summaryAu{AuAtoms}.png')
