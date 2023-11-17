@@ -1,9 +1,9 @@
 #!/bin/bash
 
 ## Nombre del trabajo
-#SBATCH --job-name=MinimaHop
+#SBATCH --job-name=MinHopBiMet
 ## Archivo de salida
-#SBATCH --output=../ExpResults/MinimaHop.txt
+#SBATCH --output=../ExpResults/MinimaHopBiMetalic.txt
 ### Partición (Cola de trabajo)
 ##SBATCH --partition=512x1024
 ## Solicitud de cpus

@@ -5,22 +5,24 @@ from ase.calculators.emt import EMT
 from ase.optimize.minimahopping import MHPlot
 from Pos3D import getPositions 
 import os
-steps = 1000
+steps = 2000
 T0=1000
-for AuAtoms in range(2, 100):
-	system = Atoms(f'Au{AuAtoms}', positions=getPositions(AuAtoms))
+positions = getPositions(13)
+systems = ['Au7Ag6', 'Al6Cu7', 'Al11Cu2', 'Al5Cu8', 'Al2Cu11']
+for i in range(len(systems)):
+	system = Atoms(systems[i], positions=positions)
 	system.set_calculator(EMT())
 	opt = MinimaHopping(atoms=system, T0=T0)
 	startT = t.time()
 	opt(totalsteps=steps)
 	endT = t.time()
 	with open('timeSummary.txt', '+a') as f:
-		print(f"Au{AuAtoms}|Time: {endT - startT}|Steps: {steps}|T0: {T0}", file=f)
+		print(f"{systems[i][0]}|Time: {endT - startT}|Steps: {steps}|T0: {T0}", file=f)
 
 	mhplot = MHPlot()
-	mhplot.save_figure(f'summaryAu{AuAtoms}.png')
-	os.rename('minima.traj', f"minimaAu{AuAtoms}.traj")
-	os.rename('hop.log', f"hopAu{AuAtoms}.log")
+	mhplot.save_figure(f'summary{systems[i][0]}.png')
+	os.rename('minima.traj', f"minima{systems[i][0]}.traj")
+	os.rename('hop.log', f"hop{systems[i][0]}.log")
 	for i in range(0, steps):
 		if i > 0:
 			os.remove(f'md{i:05d}.log')
