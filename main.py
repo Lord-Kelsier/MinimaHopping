@@ -5,7 +5,7 @@ from ase.calculators.emt import EMT
 from ase.optimize.minimahopping import MHPlot
 from Pos3D import getPositions 
 import os
-steps = 2000
+steps = 1000
 T0=1000
 positions = getPositions(13)
 systems = ['Au7Ag6', 'Al6Cu7', 'Al11Cu2', 'Al5Cu8', 'Al2Cu11']
