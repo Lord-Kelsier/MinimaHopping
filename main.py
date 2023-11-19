@@ -17,12 +17,12 @@ for i in range(len(systems)):
 	opt(totalsteps=steps)
 	endT = t.time()
 	with open('timeSummary.txt', '+a') as f:
-		print(f"{systems[i][0]}|Time: {endT - startT}|Steps: {steps}|T0: {T0}", file=f)
+		print(f"{systems[i]}|Time: {endT - startT}|Steps: {steps}|T0: {T0}", file=f)
 
 	mhplot = MHPlot()
-	mhplot.save_figure(f'summary{systems[i][0]}.png')
-	os.rename('minima.traj', f"minima{systems[i][0]}.traj")
-	os.rename('hop.log', f"hop{systems[i][0]}.log")
+	mhplot.save_figure(f'summary{systems[i]}.png')
+	os.rename('minima.traj', f"minima{systems[i]}.traj")
+	os.rename('hop.log', f"hop{systems[i]}.log")
 	for i in range(0, steps):
 		if i > 0:
 			os.remove(f'md{i:05d}.log')
