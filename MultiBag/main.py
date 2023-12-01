@@ -10,7 +10,7 @@ T0=1000
 positions = getPositions(13)
 systems = [f'Al{i}Cu{13-i}' for i in range(1, 13)]
 for i in range(len(systems)):
-	if (system[i] in ['Al2Cu11', 'Al11Cu2', 'Al5Cu8']): continue
+	if (systems[i] in ['Al2Cu11', 'Al11Cu2', 'Al5Cu8']): continue
 	system = Atoms(systems[i], positions=positions)
 	system.set_calculator(EMT())
 	opt = MinimaHopping(atoms=system, T0=T0)
