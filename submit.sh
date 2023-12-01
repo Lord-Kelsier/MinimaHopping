@@ -1,9 +1,9 @@
 #!/bin/bash
 
 ## Nombre del trabajo
-#SBATCH --job-name=MinHopBiMet
+#SBATCH --job-name=MinHopMultiBag
 ## Archivo de salida
-#SBATCH --output=../ExpResults/MinimaHopBiMetalic.txt
+#SBATCH --output=../ExpResults/MinimaHopMultiBag.txt
 ### Partición (Cola de trabajo)
 ##SBATCH --partition=512x1024
 ## Solicitud de cpus
